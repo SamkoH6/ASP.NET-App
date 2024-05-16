@@ -1,0 +1,30 @@
+@using WebApplication1.Models
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model Category
+
+@{
+    string action = ViewBag.Action ?? string.Empty;
+}
+
+<form method="post" asp-controller="Categories" asp-action="@action">
+    @if (action == "Edit")
+    {
+        <input type="hidden" asp-for="CategoryId"/>
+    }
+    <div class="text-red-600" asp-validation-summary="All"></div>
+    <div class="max-w-lg ml-6">
+        <div class="grid grid-cols-1 gap-y-4">
+            <div class="flex items-center">
+                <label for="Name" class="w-32 text-sm font-medium text-gray-700">Name:</label>
+                <input type="text" asp-for="Name" id="Name" class="flex-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+            </div>
+            <div class="flex items-center">
+                <label for="Description" class="w-32 text-sm font-medium text-gray-700">Description:</label>
+                <textarea asp-for="Description" id="Description" rows="3" class="flex-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"></textarea>
+            </div>
+        </div>
+        <div class="mt-4">
+            <button type="submit" class="inline-flex items-center px-4 py-2 bg-green-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-green-700 active:bg-green-700 focus:outline-none focus:border-green-700 focus:ring focus:ring-green-300 disabled:opacity-25 transition">Save</button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="~/css/output.css" rel="stylesheet" asp-append-version="true">
+</head>
+<body>
+
+
+<ul class="flex w-full border-b-2 p-4">
+    <l1 class="mr-6">Website</l1>
+    <li class="mr-6">
+        <a class="text-gray-500 hover:text-gray-800" href="/home/Index">Home</a>
+    </li>
+    <li class="mr-6">
+        <a class="text-gray-500 hover:text-gray-800" href="/categories/Index">Categories</a>
+    </li>
+</ul>
+
+<div class="container">
+    <div class="container pb-3">
+        @RenderSection("title")
+        <hr/>
+    </div>
+    <div class="container">
+        @RenderBody()
+    </div>
+</div>
+@await RenderSectionAsync("Scripts", required: false )
+</body>
+</html>
